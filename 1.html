@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="font/iconfont.css">
+    <style>
+        ul,li{
+            list-style:none;
+            padding:0;
+            margin:0;
+        }
+        li.list>a{
+            display:block;
+            background-color:yellow;
+        }
+        li.listItem,li.list>a{
+            width:350px;
+            height:40px;
+            line-height:40px;
+            border-bottom:1px solid red;
+        }
+        a{
+            text-decoration:none;
+            color:#000;
+        }
+        ul.box>li.list:first-child>a{
+            border-top:1px solid red;
+        }
+        ul.boxItem{
+            display:none;
+        } 
+        
+        .open+ul.boxItem{ display: block; }
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="box">
+            <li class="list">
+                <a href="#" class="open">
+                    <i class="icon iconfont icon-dingdanliebiao"></i>
+                    <span>安吉县</span>
+                </a>
+                <ul class="boxItem">
+                    <li class="listItem">递铺镇</li>
+                    <li class="listItem">杭垓镇</li>
+                    <li class="listItem">报福镇</li>
+                    <li class="listItem">孝丰镇</li>
+                    <li class="listItem">安城镇</li>
+                    <li class="listItem">梅溪镇</li>
+                </ul>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <i class="icon iconfont icon-dingdanliebiao"></i>
+                    <span>杭州</span>
+                </a>
+                <ul class="boxItem">
+                    <li class="listItem">西湖区</li>
+                    <li class="listItem">余杭区</li>
+                    <li class="listItem">拱墅区</li>
+                    <li class="listItem">上城区</li>
+                    <li class="listItem">下城区</li>
+                </ul>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <i class="icon iconfont icon-dingdanliebiao"></i>
+                    <span>湖州</span>
+                </a>
+                <ul class="boxItem">
+                    <li class="listItem">安吉县</li>
+                    <li class="listItem">吴兴区</li>
+                    <li class="listItem">南浔区</li>
+                    <li class="listItem">德清县</li>
+                    <li class="listItem">长兴县</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        (function(){
+            var panels=document.querySelectorAll(
+                "ul.box>li.list>a"
+            );
+            for(var panel of panels){
+                panel.onclick=function(){
+                    var panel=this;
+                    if(panel.className==="open"){
+                        panel.className="";
+                    }else{
+                        var openPanel=document.querySelector(
+                            "ul.box>li.list>a.open"
+                        );
+                        if(openPanel!=null)
+                            openPanel.className="";
+                        panel.className="open";
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
